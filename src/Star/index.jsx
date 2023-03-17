@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import './style.css';
+import React, { useState } from "react";
+import "./style.css";
 
-const Star = () => {
-  const [glowing, setGlowing] = useState(false);
-  
-  const starClass = glowing
-    ? 'rating__star rating__star--on'
-    : 'rating__star';
+const Star = ({ glowing, rating, onSelect }) => {
+  const handleClick = () => {
+    onSelect(rating);
+  };
+  const starClass = glowing ? "rating__star rating__star--on" : "rating__star";
 
-  return (
-    <div className={starClass}></div>
-  );
+  return <div className={starClass} onClick={handleClick}></div>;
 };
 
 export default Star;
